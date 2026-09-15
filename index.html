@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="SAGE-3D: Semantic-Aware 3D Representations for Generalizable Vision-Language-Action Models." />
+  <title>SAGE-3D | Semantic-Aware 3D VLA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="SAGE-3D home"><span class="brand-mark">S3</span><span>SAGE-3D</span></a>
+    <nav aria-label="Primary navigation">
+      <a href="#abstract">Abstract</a><a href="#method">Method</a><a href="#experiments">Experiments</a>
+    </nav>
+    <a class="top-code" href="https://github.com/OpenHelix-Team/" target="_blank" rel="noreferrer">Code <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="eyebrow"><span class="eyebrow-dot"></span> CoRL 2026 · Camera Ready</div>
+      <h1>SAGE-3D<span class="period">.</span></h1>
+      <p class="subtitle">Semantic-Aware 3D Representations for<br class="desktop-only" /> Generalizable Vision-Language-Action Models</p>
+      <div class="authors"><a href="#authors">Pengxiang Ding</a><sup>1,2*</sup><span>,</span><a href="#authors">Xuanxuan An</a><sup>3*</sup><span>,</span><a href="#authors">Kexian Yu</a><sup>4</sup><span>,</span><a href="#authors">Haoying Wang</a><sup>3</sup><span>,</span><a href="#authors">Minghui Lin</a><sup>1</sup><span>,</span><a href="#authors">Xuhao Wan</a><sup>4</sup><span>,</span><a href="#authors">Wenxuan Song</a><sup>5</sup><span>,</span><a href="#authors">Han Zhao</a><sup>1,2</sup><span>,</span><a href="#authors">Yihao Wang</a><sup>6</sup><span>,</span><a href="#authors">Donglin Wang</a><sup>1,7†</sup><span>,</span><a href="#authors">Ning Ding</a><sup>3†</sup></div>
+      <p class="affiliations" id="authors"><sup>1</sup>Westlake University &nbsp; <sup>2</sup>Zhejiang University &nbsp; <sup>3</sup>Xi’an Jiaotong University &nbsp; <sup>4</sup>Zhengzhou University &nbsp; <sup>5</sup>HKUST(GZ) &nbsp; <sup>6</sup>BAAI &nbsp; <sup>7</sup>Westlake Robotics</p>
+      <div class="hero-actions"><a class="button button-dark" href="CoRL_2026_Camera_Ready.pdf" target="_blank">Read paper <span>↗</span></a><a class="button button-light" href="https://github.com/OpenHelix-Team/" target="_blank" rel="noreferrer">View code <span>↗</span></a></div>
+      <div class="hero-rule"></div>
+      <div class="hero-video-wrap"><video class="hero-video" src="assets/SAGE-3D_highlights_page.mp4" autoplay muted loop playsinline poster="assets/real-world-result.jpg"></video><div class="video-label"><span class="live-dot"></span> SAGE-3D in action</div></div>
+    </section>
+
+    <section class="section shell narrow" id="abstract"><div class="section-kicker">01 / Abstract</div><div class="abstract-grid"><h2>3D grounding,<br /><em>made semantic.</em></h2><p>Vision-Language-Action models show strong potential for language-conditioned robotic manipulation, but their reliance on 2D visual backbones limits precise reasoning about depth, spatial relations, and contact-rich actions. <strong>We propose SAGE-3D</strong>, a semantic-aware 3D VLA framework that aligns geometric structure with task semantics for instruction-conditioned action prediction.<br /><br />SAGE-3D introduces a 3D Semantic-Aware Feature Generator (SAFG), integrating RGB semantics, depth information, and task instructions to produce 3D Reasoning Tokens. A FiLM-based geometry-conditioned decoder lets this spatial context modulate action generation directly.</p></div></section>
+
+    <section class="section shell" id="method"><div class="section-kicker">02 / Method</div><div class="method-intro"><h2>From pixels to<br /><em>reasoning tokens.</em></h2><p>Geometry is most useful when it knows what the instruction is asking for. SAGE-3D couples transferable 3D structure with task-relevant semantics, then routes that context into the action head.</p></div><div class="pipeline" aria-label="SAGE-3D pipeline"><div class="pipeline-card"><span class="step">01</span><h3>Semantic-Aware<br />Feature Generator</h3><p>RGB + depth + instruction</p><div class="chip-row"><span>RGB</span><span>Depth</span><span>Task</span></div></div><div class="pipeline-arrow" aria-hidden="true">→</div><div class="pipeline-card accent"><span class="step">02</span><h3>3D Reasoning<br />Tokens</h3><p>Objects · relations · affordances</p><div class="token-orbit"><i></i><i></i><i></i><i></i></div></div><div class="pipeline-arrow" aria-hidden="true">→</div><div class="pipeline-card"><span class="step">03</span><h3>FiLM Geometry-<br />Conditioned Decoder</h3><p>Spatial context → action</p><div class="action-bars"><b></b><b></b><b></b><b></b></div></div></div></section>
+
+    <section class="section shell" id="experiments"><div class="section-kicker">03 / Experiments</div><div class="experiment-head"><div><h2>Reliable in the lab.<br /><em>Ready for reality.</em></h2></div><div class="metric"><strong>100%</strong><span>LIBERO-SPATIAL success<br />state-of-the-art</span></div></div><div class="result-panel"><div class="result-copy"><span class="mono-label">REAL-WORLD EVALUATION</span><h3>Spatially demanding tasks<br />benefit most from 3D.</h3><p>SAGE-3D improves performance and training efficiency across simulation and real-world manipulation, with the largest gains on tasks that require accurate spatial grounding.</p></div><img src="assets/real-world-result.jpg" alt="Real-world success comparison for four manipulation tasks" /></div><div class="video-section-head"><h3>Watch the robot work</h3><p>Original-speed demonstrations from our real-world evaluation.</p></div><div class="video-grid"><figure class="video-card"><video controls preload="metadata" src="assets/01_libero_four_tasks.mp4" poster="assets/real-world-result.jpg"></video><figcaption><span>LIBERO</span> Four-task sequence</figcaption></figure><figure class="video-card"><video controls preload="metadata" src="assets/02_calvin_five_steps.mp4" poster="assets/real-world-result.jpg"></video><figcaption><span>CALVIN</span> Five-step sequence</figcaption></figure><figure class="video-card wide"><video controls preload="metadata" src="assets/real_world_all_tasks.mp4" poster="assets/real-world-result.jpg"></video><figcaption><span>REAL WORLD</span> Long-horizon task suite</figcaption></figure></div></section>
+
+    <section class="section shell citation"><div class="section-kicker">04 / Citation</div><div class="citation-head"><h2>Build on<br /><em>SAGE-3D.</em></h2><button class="copy-button" id="copyBib" type="button" title="Copy BibTeX citation">Copy BibTeX <span>⧉</span></button></div><pre id="bibtex"><code>@inproceedings{ding2026sage3d,
+  title     = {SAGE-3D: Semantic-Aware 3D Representations for
+               Generalizable Vision-Language-Action Models},
+  author    = {Ding, Pengxiang and An, Xuanxuan and Yu, Kexian and
+               Wang, Haoying and Lin, Minghui and others},
+  booktitle = {Conference on Robot Learning (CoRL)},
+  year      = {2026}
+}</code></pre></section>
+  </main>
+  <footer class="footer shell"><span class="brand-mark">S3</span><span>SAGE-3D · CoRL 2026</span><span class="footer-spacer"></span><a href="https://github.com/OpenHelix-Team/" target="_blank" rel="noreferrer">OpenHelix Team ↗</a></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite">BibTeX copied</div>
+  <script src="script.js"></script>
+</body>
+</html>
