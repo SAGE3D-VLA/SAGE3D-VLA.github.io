@@ -1,53 +1,427 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="SAGE-3D: Semantic-Aware 3D Representations for Generalizable Vision-Language-Action Models." />
-  <title>SAGE-3D | Semantic-Aware 3D VLA</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SAGE-3D: Semantic-Aware 3D Representations for Generalizable Vision-Language-Action Models</title>
+  <meta name="description" content="SAGE-3D: Semantic-Aware 3D Representations for Generalizable Vision-Language-Action Models">
+  <meta name="keywords" content="SAGE-3D, Vision-Language-Action, VLA, 3D, robot manipulation, CoRL 2026">
+
+  <meta property="og:title" content="SAGE-3D: Semantic-Aware 3D Representations for Generalizable Vision-Language-Action Models">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/teaser.png">
+  <meta property="og:description" content="Semantic-aware 3D representations for generalizable vision-language-action models.">
+
+  <link rel="icon" href="assets/icon.png">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.24/dist/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <script defer src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.24/dist/js/bulma-carousel.min.js"></script>
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="#top" aria-label="SAGE-3D home"><span class="brand-mark">S3</span><span>SAGE-3D</span></a>
-    <nav aria-label="Primary navigation">
-      <a href="#abstract">Abstract</a><a href="#method">Method</a><a href="#experiments">Experiments</a>
-    </nav>
-    <a class="top-code" href="https://github.com/OpenHelix-Team/" target="_blank" rel="noreferrer">Code <span aria-hidden="true">↗</span></a>
-  </header>
 
-  <main id="top">
-    <section class="hero shell">
-      <div class="eyebrow"><span class="eyebrow-dot"></span> CoRL 2026 · Camera Ready</div>
-      <h1>SAGE-3D<span class="period">.</span></h1>
-      <p class="subtitle">Semantic-Aware 3D Representations for<br class="desktop-only" /> Generalizable Vision-Language-Action Models</p>
-      <div class="authors"><a href="#authors">Pengxiang Ding</a><sup>1,2*</sup><span>,</span><a href="#authors">Xuanxuan An</a><sup>3*</sup><span>,</span><a href="#authors">Kexian Yu</a><sup>4</sup><span>,</span><a href="#authors">Haoying Wang</a><sup>3</sup><span>,</span><a href="#authors">Minghui Lin</a><sup>1</sup><span>,</span><a href="#authors">Xuhao Wan</a><sup>4</sup><span>,</span><a href="#authors">Wenxuan Song</a><sup>5</sup><span>,</span><a href="#authors">Han Zhao</a><sup>1,2</sup><span>,</span><a href="#authors">Yihao Wang</a><sup>6</sup><span>,</span><a href="#authors">Donglin Wang</a><sup>1,7†</sup><span>,</span><a href="#authors">Ning Ding</a><sup>3†</sup></div>
-      <p class="affiliations" id="authors"><sup>1</sup>Westlake University &nbsp; <sup>2</sup>Zhejiang University &nbsp; <sup>3</sup>Xi’an Jiaotong University &nbsp; <sup>4</sup>Zhengzhou University &nbsp; <sup>5</sup>HKUST(GZ) &nbsp; <sup>6</sup>BAAI &nbsp; <sup>7</sup>Westlake Robotics</p>
-      <div class="hero-actions"><a class="button button-dark" href="CoRL_2026_Camera_Ready.pdf" target="_blank">Read paper <span>↗</span></a><a class="button button-light" href="https://github.com/OpenHelix-Team/" target="_blank" rel="noreferrer">View code <span>↗</span></a></div>
-      <div class="hero-rule"></div>
-      <div class="hero-video-wrap"><video class="hero-video" src="assets/SAGE-3D_highlights_page.mp4" autoplay muted loop playsinline poster="assets/Teaser.jpg"></video><div class="video-label"><span class="live-dot"></span> SAGE-3D in action</div></div>
-    </section>
+  <!-- Header: follows the OpenVLA project-page structure. -->
+  <section class="hero publication-header">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">
+              SAGE-3D:<br>
+              <span class="publication-subtitle">Semantic-Aware 3D Representations for Generalizable Vision-Language-Action Models</span>
+            </h1>
 
-    <section class="section shell narrow" id="abstract"><div class="section-kicker">01 / Abstract</div><div class="abstract-grid"><h2>3D grounding,<br /><em>made semantic.</em></h2><p>Vision-Language-Action models show strong potential for language-conditioned robotic manipulation, but their reliance on 2D visual backbones limits precise reasoning about depth, spatial relations, and contact-rich actions. <strong>We propose SAGE-3D</strong>, a semantic-aware 3D VLA framework that aligns geometric structure with task semantics for instruction-conditioned action prediction.<br /><br />SAGE-3D introduces a 3D Semantic-Aware Feature Generator (SAFG), integrating RGB semantics, depth information, and task instructions to produce 3D Reasoning Tokens. A FiLM-based geometry-conditioned decoder lets this spatial context modulate action generation directly.</p></div></section>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><span class="author-name">Pengxiang Ding</span><sup>*,1,2</sup>,</span>
+              <span class="author-block"><span class="author-name">Xuanxuan An</span><sup>*,3</sup>,</span>
+              <span class="author-block"><span class="author-name">Kexian Yu</span><sup>4</sup>,</span>
+              <span class="author-block"><span class="author-name">Haoying Wang</span><sup>3</sup>,</span>
+              <span class="author-block"><span class="author-name">Minghui Lin</span><sup>1</sup>,</span>
+              <span class="author-block"><span class="author-name">Xuhao Wan</span><sup>4</sup>,</span>
+              <br>
+              <span class="author-block"><span class="author-name">Wenxuan Song</span><sup>5</sup>,</span>
+              <span class="author-block"><span class="author-name">Han Zhao</span><sup>1,2</sup>,</span>
+              <span class="author-block"><span class="author-name">Yihao Wang</span><sup>6</sup>,</span>
+              <span class="author-block"><span class="author-name">Donglin Wang</span><sup>1,7&dagger;</sup>,</span>
+              <span class="author-block"><span class="author-name">Ning Ding</span><sup>3&dagger;</sup></span>
+            </div>
 
-    <section class="section shell" id="method"><div class="section-kicker">02 / Method</div><div class="method-intro"><h2>From pixels to<br /><em>reasoning tokens.</em></h2><p>Geometry is most useful when it knows what the instruction is asking for. SAGE-3D couples transferable 3D structure with task-relevant semantics, then routes that context into the action head.</p></div><div class="pipeline" aria-label="SAGE-3D pipeline"><div class="pipeline-card"><span class="step">01</span><h3>Semantic-Aware<br />Feature Generator</h3><p>RGB + depth + instruction</p><div class="chip-row"><span>RGB</span><span>Depth</span><span>Task</span></div></div><div class="pipeline-arrow" aria-hidden="true">→</div><div class="pipeline-card accent"><span class="step">02</span><h3>3D Reasoning<br />Tokens</h3><p>Objects · relations · affordances</p><div class="token-orbit"><i></i><i></i><i></i><i></i></div></div><div class="pipeline-arrow" aria-hidden="true">→</div><div class="pipeline-card"><span class="step">03</span><h3>FiLM Geometry-<br />Conditioned Decoder</h3><p>Spatial context → action</p><div class="action-bars"><b></b><b></b><b></b><b></b></div></div></div></section>
+            <div class="is-size-5 publication-authors affiliation-block">
+              <span class="author-block"><sup>*</sup>Equal contribution &nbsp; <sup>&dagger;</sup>Corresponding authors</span><br>
+              <span class="author-block"><sup>1</sup>Westlake University,</span>
+              <span class="author-block"><sup>2</sup>Zhejiang University,</span>
+              <span class="author-block"><sup>3</sup>Xi'an Jiaotong University,</span><br>
+              <span class="author-block"><sup>4</sup>Zhengzhou University,</span>
+              <span class="author-block"><sup>5</sup>HKUST(GZ),</span>
+              <span class="author-block"><sup>6</sup>BAAI,</span>
+              <span class="author-block"><sup>7</sup>Westlake Robotics</span>
+            </div>
 
-    <section class="section shell" id="experiments"><div class="section-kicker">03 / Experiments</div><div class="experiment-head"><div><h2>Reliable in the lab.<br /><em>Ready for reality.</em></h2></div><div class="metric"><strong>100%</strong><span>LIBERO-SPATIAL success<br />state-of-the-art</span></div></div><div class="result-panel"><div class="result-copy"><span class="mono-label">REAL-WORLD EVALUATION</span><h3>Spatially demanding tasks<br />benefit most from 3D.</h3><p>SAGE-3D improves performance and training efficiency across simulation and real-world manipulation, with the largest gains on tasks that require accurate spatial grounding.</p></div><img src="assets/Teaser.jpg" alt="Real-world success comparison for four manipulation tasks" /></div><div class="video-section-head"><h3>Watch the robot work</h3><p>Original-speed demonstrations from our real-world evaluation.</p></div><div class="video-grid"><figure class="video-card"><video controls preload="metadata" src="assets/01_libero_four_tasks.mp4" poster="assets/real-world-result.jpg"></video><figcaption><span>LIBERO</span> Four-task sequence</figcaption></figure><figure class="video-card"><video controls preload="metadata" src="assets/02_calvin_five_steps.mp4" poster="assets/real-world-result.jpg"></video><figcaption><span>CALVIN</span> Five-step sequence</figcaption></figure><figure class="video-card wide"><video controls preload="metadata" src="assets/real_world_all_tasks.mp4" poster="assets/real-world-result.jpg"></video><figcaption><span>REAL WORLD</span> Long-horizon task suite</figcaption></figure></div></section>
+            <div class="publication-venue">10th Conference on Robot Learning (CoRL 2026)</div>
 
-    <section class="section shell citation"><div class="section-kicker">04 / Citation</div><div class="citation-head"><h2>Build on<br /><em>SAGE-3D.</em></h2><button class="copy-button" id="copyBib" type="button" title="Copy BibTeX citation">Copy BibTeX <span>⧉</span></button></div><pre id="bibtex"><code>@inproceedings{ding2026sage3d,
-  title     = {SAGE-3D: Semantic-Aware 3D Representations for
-               Generalizable Vision-Language-Action Models},
-  author    = {Ding, Pengxiang and An, Xuanxuan and Yu, Kexian and
-               Wang, Haoying and Lin, Minghui and others},
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="CoRL_2026_Camera_Ready.pdf" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/OpenHelix-Team/SAGE-3D" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fab fa-github"></i></span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://sage3d.github.io" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-globe"></i></span>
+                    <span>Project</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaser video: replace assets/videos/sage3d_teaser.mp4 with your final teaser. -->
+  <section class="hero teaser teaser-video">
+    <div class="container is-max-desktop has-text-centered">
+      <div class="hero-body">
+        <div class="video-shell teaser-player">
+          <video id="teaser-video" autoplay muted loop playsinline controls preload="metadata" poster="assets/teaser.png" data-placeholder="SAGE-3D teaser video">
+            <source src="assets/videos/sage3d_teaser.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaser image + paper summary. -->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img class="paper-figure" src="assets/teaser.png" alt="Overview of SAGE-3D">
+        <h2 class="subtitle has-text-centered teaser-summary">
+          We introduce <strong>SAGE-3D</strong>, a semantic-aware 3D VLA framework that couples transferable geometric structure with task-relevant semantics.
+          Its 3D Semantic-Aware Feature Generator (SAFG) produces instruction-conditioned 3D Reasoning Tokens from RGB, depth, and language, which directly modulate action generation through a FiLM-based decoder.
+          SAGE-3D reaches <strong>100% success on LIBERO-SPATIAL</strong> and improves robustness across distribution shifts and real-world manipulation.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- Top rollout carousel, mirroring OpenVLA's light-gray video strip. -->
+  <section class="hero is-light is-small rollout-strip">
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item has-text-centered">
+            <div class="video-card">
+              <video autoplay controls muted loop playsinline preload="metadata" data-placeholder="LIBERO-SPATIAL: black bowl to plate">
+                <source src="assets/videos/libero_spatial_black_bowl_to_plate.mp4" type="video/mp4">
+              </video>
+              <p class="video-overlay">LIBERO-SPATIAL: Black Bowl to Plate</p>
+            </div>
+          </div>
+          <div class="item has-text-centered">
+            <div class="video-card">
+              <video autoplay controls muted loop playsinline preload="metadata" data-placeholder="LIBERO-OBJECT: tomato sauce to basket">
+                <source src="assets/videos/libero_object_tomato_sauce_to_basket.mp4" type="video/mp4">
+              </video>
+              <p class="video-overlay">LIBERO-OBJECT: Tomato Sauce to Basket</p>
+            </div>
+          </div>
+          <div class="item has-text-centered">
+            <div class="video-card">
+              <video autoplay controls muted loop playsinline preload="metadata" data-placeholder="LIBERO-GOAL: open middle drawer">
+                <source src="assets/videos/libero_goal_open_middle_drawer.mp4" type="video/mp4">
+              </video>
+              <p class="video-overlay">LIBERO-GOAL: Open Middle Drawer</p>
+            </div>
+          </div>
+          <div class="item has-text-centered">
+            <div class="video-card">
+              <video autoplay controls muted loop playsinline preload="metadata" data-placeholder="LIBERO-LONG: mug and pudding">
+                <source src="assets/videos/libero_long_mug_and_pudding.mp4" type="video/mp4">
+              </video>
+              <p class="video-overlay">LIBERO-LONG: Mug + Pudding</p>
+            </div>
+          </div>
+          <div class="item has-text-centered">
+            <div class="video-card">
+              <video autoplay controls muted loop playsinline preload="metadata" data-placeholder="CALVIN ABC to D long-horizon rollout">
+                <source src="assets/videos/calvin_abc_to_d_long_horizon.mp4" type="video/mp4">
+              </video>
+              <p class="video-overlay">CALVIN ABC&rarr;D Long-Horizon Rollout</p>
+            </div>
+          </div>
+          <div class="item has-text-centered">
+            <div class="video-card">
+              <video autoplay controls muted loop playsinline preload="metadata" data-placeholder="Real world: grasp right-side vegetable">
+                <source src="assets/videos/real_grasp_right_side_vegetable.mp4" type="video/mp4">
+              </video>
+              <p class="video-overlay">Real World: Grasp Right-Side Vegetable</p>
+            </div>
+          </div>
+          <div class="item has-text-centered">
+            <div class="video-card">
+              <video autoplay controls muted loop playsinline preload="metadata" data-placeholder="Real world: place green block">
+                <source src="assets/videos/real_place_green_block.mp4" type="video/mp4">
+              </video>
+              <p class="video-overlay">Real World: Place Green Block</p>
+            </div>
+          </div>
+          <div class="item has-text-centered">
+            <div class="video-card">
+              <video autoplay controls muted loop playsinline preload="metadata" data-placeholder="Real world: stack glass cups">
+                <source src="assets/videos/real_stack_glass_cups.mp4" type="video/mp4">
+              </video>
+              <p class="video-overlay">Real World: Stack Glass Cups</p>
+            </div>
+          </div>
+          <div class="item has-text-centered">
+            <div class="video-card">
+              <video autoplay controls muted loop playsinline preload="metadata" data-placeholder="Real world: dual-arm lift the pot">
+                <source src="assets/videos/real_lift_the_pot_dual_arm.mp4" type="video/mp4">
+              </video>
+              <p class="video-overlay">Real World: Dual-Arm Lift the Pot</p>
+            </div>
+          </div>
+        </div>
+        <br>
+        <p class="has-text-centered rollout-caption">
+          Simulation videos cover LIBERO and zero-shot CALVIN ABC&rarr;D execution; real-world videos correspond to the four AgileX evaluation tasks in the paper.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section spacer-section">
+    <div class="container is-max-desktop"></div>
+  </section>
+
+  <!-- Model section. -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">The SAGE-3D Model</h2>
+          <div class="content has-text-justified has-text-centered">
+            <img class="paper-figure" src="assets/model.png" alt="SAGE-3D model architecture">
+            <p>
+              SAGE-3D augments a VLA backbone with a <strong>3D Semantic-Aware Feature Generator (SAFG)</strong>.
+              The VLA branch produces perception tokens from visual observations and task instructions, while SAFG processes RGB semantics, monocular depth, and the instruction to generate <strong>3D Reasoning Tokens</strong>.
+              An alignment encoder maps these tokens into the action-decoding space.
+            </p>
+            <p>
+              Instead of simply concatenating geometry with visual tokens, SAGE-3D injects the 3D Reasoning Tokens into the action head through a <strong>FiLM-based geometry-conditioned decoder</strong>.
+              The resulting scale and shift parameters modulate policy features so that task-relevant geometry directly influences action generation while preserving the pretrained VLM semantics.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experiments section, following the long-form OpenVLA page organization. -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Experiments</h2>
+
+          <h3 class="title is-4">Representation Analysis: Transferable Geometry and Semantic Alignment</h3>
+          <div class="content has-text-justified">
+            <img class="paper-figure" src="assets/depth_probing.png" alt="Depth probing across validation scenarios">
+            <p>
+              We first revisit implicit and explicit 3D VLA paradigms through representation analysis.
+              Depth probing across LIBERO in-domain scenes, noisy LIBERO scenes, CALVIN OOD scenes, and real-world images shows that implicit SF representations degrade under distribution shift, whereas explicit geometry from GeoVLA and the VGGT foundation model preserves more stable depth structure.
+            </p>
+            <img class="paper-figure figure-gap" src="assets/attention.png" alt="Attention visualization of 3D feature representations">
+            <p>
+              Geometry alone is insufficient: geometry-centric features can emphasize salient but task-irrelevant regions.
+              Under the same VLA backbone and training setup, SAFG features yield attention that is more concentrated on instruction-relevant objects, supporting the paper's central design principle of jointly organizing 3D structure around task semantics and affordances.
+            </p>
+          </div>
+
+          <br>
+          <h3 class="title is-4">In-Domain and Out-of-Domain Evaluation</h3>
+          <div class="content has-text-justified">
+            <img class="paper-figure" src="assets/main_results.png" alt="Performance on LIBERO and LIBERO-Pro">
+            <p>
+              On LIBERO, SAGE-3D obtains <strong>100.0 / 99.8 / 99.2 / 97.0</strong> success rates on SPATIAL / OBJECT / GOAL / LONG, for an average of <strong>99.0%</strong>.
+              On the zero-shot LIBERO-Pro benchmark, it reaches an average success rate of <strong>0.64</strong>, with gains especially visible under position and task variations.
+            </p>
+
+            <div class="columns is-vcentered experiment-split">
+              <div class="column is-7">
+                <p>
+                  SAGE-3D also converges more efficiently: at matched training iterations, it consistently achieves higher average success than OpenVLA-OFT and SF.
+                  The improvement is most pronounced on the GOAL and LONG suites, where spatial reasoning and long-horizon error accumulation are more challenging.
+                </p>
+              </div>
+              <div class="column is-5 has-text-centered">
+                <img class="compact-figure" src="assets/training_efficiency.png" alt="Training efficiency across LIBERO suites">
+              </div>
+            </div>
+          </div>
+
+          <br>
+          <h3 class="title is-4">Component-wise Analysis and Zero-Shot 3D Reasoning</h3>
+          <div class="content has-text-justified">
+            <img class="paper-figure" src="assets/injection_strategies.png" alt="Spatial information injection strategies">
+            <p>
+              Policy-side injection is more effective than VLM-side injection, and FiLM gives the strongest result among the tested fusion mechanisms, reaching <strong>97.0%</strong> on LIBERO-LONG.
+              This supports using semantic-aware geometry to modulate the action branch directly.
+            </p>
+            <img class="paper-figure figure-gap" src="assets/zero_shot_qa.png" alt="Zero-shot spatial understanding with SAFG">
+            <p>
+              Frozen SAFG also improves zero-shot gripper-distance sorting on 500 CALVIN ABC&rarr;D frames.
+              Relative to a naive VLM, VLM+SAFG improves exact accuracy by <strong>+12.07%</strong>, pairwise order accuracy by <strong>+7.47%</strong>, and Kendall's &tau; by <strong>+0.1495</strong>.
+            </p>
+          </div>
+
+          <br>
+          <h3 class="title is-4">Robustness on LIBERO-PLUS</h3>
+          <div class="content has-text-justified">
+            <img class="paper-figure" src="assets/libero_plus.png" alt="Zero-shot success rates on LIBERO-PLUS">
+            <p>
+              Without additional fine-tuning, SAGE-3D achieves <strong>84.7%</strong> average success on LIBERO-PLUS across camera viewpoint, robot initial state, language, lighting, background, sensor-noise, and object-layout perturbations.
+              It obtains the strongest reported average in the paper and is especially robust to camera viewpoint, robot-state, background-texture, and object-layout shifts.
+            </p>
+          </div>
+
+          <br>
+          <h3 class="title is-4">Real-World Experiments</h3>
+          <div class="content has-text-justified">
+            <img class="paper-figure" src="assets/real_world.png" alt="Real-world robotic manipulation experiments">
+            <p>
+              On the AgileX real-robot setup, SAGE-3D improves OpenVLA-OFT on all four evaluated tasks:
+              <strong>32.5% &rarr; 65%</strong> for grasping the right-side vegetable,
+              <strong>67.5% &rarr; 90%</strong> for placing the green block,
+              <strong>20% &rarr; 77.5%</strong> for stacking glass cups under lighting shifts, and
+              <strong>25% &rarr; 45%</strong> for the dual-arm pot-lifting task.
+            </p>
+          </div>
+
+          <br><br>
+          <h3 class="title is-4">Sample SAGE-3D Rollout Videos</h3>
+          <div class="content has-text-justified">
+            <p>
+              Put the corresponding MP4 files into <code>assets/videos/</code> with the filenames shown below.
+              The page displays labeled placeholders until those files are present.
+            </p>
+          </div>
+
+          <h4 class="title is-6">Simulation Rollouts</h4>
+          <div class="columns is-multiline is-vcentered interpolation-panel rollout-panel">
+            <div class="column is-half has-text-centered">
+              <h5>LIBERO-SPATIAL: Pick up the black bowl from table center and place it on the plate.</h5>
+              <video class="detail-video" autoplay controls muted loop playsinline preload="metadata" data-placeholder="libero_spatial_black_bowl_to_plate.mp4">
+                <source src="assets/videos/libero_spatial_black_bowl_to_plate.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="column is-half has-text-centered">
+              <h5>LIBERO-OBJECT: Pick up the tomato sauce and place it in the basket.</h5>
+              <video class="detail-video" autoplay controls muted loop playsinline preload="metadata" data-placeholder="libero_object_tomato_sauce_to_basket.mp4">
+                <source src="assets/videos/libero_object_tomato_sauce_to_basket.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="column is-half has-text-centered">
+              <h5>LIBERO-GOAL: Open the middle drawer of the cabinet.</h5>
+              <video class="detail-video" autoplay controls muted loop playsinline preload="metadata" data-placeholder="libero_goal_open_middle_drawer.mp4">
+                <source src="assets/videos/libero_goal_open_middle_drawer.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="column is-half has-text-centered">
+              <h5>LIBERO-LONG: Put the white mug on the plate and the chocolate pudding to the right of the plate.</h5>
+              <video class="detail-video" autoplay controls muted loop playsinline preload="metadata" data-placeholder="libero_long_mug_and_pudding.mp4">
+                <source src="assets/videos/libero_long_mug_and_pudding.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="column is-half has-text-centered">
+              <h5>CALVIN ABC&rarr;D: Lift pink block &rarr; place in slider &rarr; open drawer &rarr; rotate red block &rarr; lift red block.</h5>
+              <video class="detail-video" autoplay controls muted loop playsinline preload="metadata" data-placeholder="calvin_abc_to_d_long_horizon.mp4">
+                <source src="assets/videos/calvin_abc_to_d_long_horizon.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <div class="content has-text-justified execution-image-block">
+            <img class="paper-figure" src="assets/execution_examples.png" alt="Execution examples on LIBERO and CALVIN ABC to D">
+          </div>
+
+          <h4 class="title is-6">Real-World AgileX Rollouts</h4>
+          <div class="columns is-multiline is-vcentered interpolation-panel rollout-panel">
+            <div class="column is-half has-text-centered">
+              <h5>Grasp Right-Side Vegetable &mdash; Target Object Variation</h5>
+              <video class="detail-video" autoplay controls muted loop playsinline preload="metadata" data-placeholder="real_grasp_right_side_vegetable.mp4">
+                <source src="assets/videos/real_grasp_right_side_vegetable.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="column is-half has-text-centered">
+              <h5>Place Green Block &mdash; Placement Height Variation</h5>
+              <video class="detail-video" autoplay controls muted loop playsinline preload="metadata" data-placeholder="real_place_green_block.mp4">
+                <source src="assets/videos/real_place_green_block.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="column is-half has-text-centered">
+              <h5>Stack Glass Cups &mdash; Lighting Color Variation</h5>
+              <video class="detail-video" autoplay controls muted loop playsinline preload="metadata" data-placeholder="real_stack_glass_cups.mp4">
+                <source src="assets/videos/real_stack_glass_cups.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="column is-half has-text-centered">
+              <h5>Lift the Pot &mdash; Dual-Arm Manipulation</h5>
+              <video class="detail-video" autoplay controls muted loop playsinline preload="metadata" data-placeholder="real_lift_the_pot_dual_arm.mp4">
+                <source src="assets/videos/real_lift_the_pot_dual_arm.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@inproceedings{ding2026sage3d,
+  title     = {SAGE-3D: Semantic-Aware 3D Representations for Generalizable Vision-Language-Action Models},
+  author    = {Pengxiang Ding and Xuanxuan An and Kexian Yu and Haoying Wang and Minghui Lin and Xuhao Wan and Wenxuan Song and Han Zhao and Yihao Wang and Donglin Wang and Ning Ding},
   booktitle = {Conference on Robot Learning (CoRL)},
   year      = {2026}
-}</code></pre></section>
-  </main>
-  <footer class="footer shell"><span class="brand-mark">S3</span><span>SAGE-3D · CoRL 2026</span><span class="footer-spacer"></span><a href="https://github.com/OpenHelix-Team/" target="_blank" rel="noreferrer">OpenHelix Team ↗</a></footer>
-  <div class="toast" id="toast" role="status" aria-live="polite">BibTeX copied</div>
-  <script src="script.js"></script>
+}</code></pre>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              Page structure and visual style adapted from the
+              <a href="https://openvla.github.io/" target="_blank" rel="noopener">OpenVLA project website</a>,
+              which is based on the <a href="https://github.com/nerfies/nerfies.github.io" target="_blank" rel="noopener">NeRFies</a> project-page template.
+              Template attribution retained under
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
