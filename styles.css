@@ -349,3 +349,10 @@ line-height: 1.6;
 .teaser-summary p {
 text-align: center !important;
 }
+
+.teaser .paper-figure {
+width: 82%;
+max-width: 1050px;
+height: auto;
+margin: 0 auto;
+}
