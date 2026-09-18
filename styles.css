@@ -292,3 +292,60 @@ pre code {
     min-height: 0;
   }
 }
+
+.publication-title.title.is-1 {
+font-family: 'Google Sans', 'Noto Sans', sans-serif;
+font-size: 3.8rem !important;
+font-weight: 800;
+line-height: 1.08;
+letter-spacing: -0.03em;
+margin-bottom: 1rem !important;
+}
+
+.publication-subtitle {
+display: block;
+font-family: 'Google Sans', 'Noto Sans', sans-serif;
+font-size: 2.0rem;
+font-weight: 600;
+line-height: 1.18;
+margin-top: 0.4rem;
+}
+
+.publication-authors {
+font-family: 'Google Sans', 'Noto Sans', sans-serif;
+font-size: 1.15rem !important;
+line-height: 1.5;
+margin-top: 1.5rem;
+}
+
+.affiliation-block {
+font-size: 0.95rem !important;
+line-height: 1.5;
+margin-top: 0.8rem;
+}
+
+.publication-venue {
+font-size: 1rem;
+margin-top: 0.8rem;
+}
+
+.publication-links .button {
+font-size: 1rem;
+padding: 0.65rem 1.4rem;
+}
+
+.paper-figure {
+width: 90%;
+max-width: 1100px;
+}
+
+.teaser-summary {
+max-width: 950px;
+margin: 2rem auto;
+font-size: 1.25rem;
+line-height: 1.6;
+}
+
+.teaser-summary p {
+text-align: center !important;
+}
