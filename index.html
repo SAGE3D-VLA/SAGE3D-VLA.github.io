@@ -199,7 +199,7 @@
         </div>
         <br>
         <p class="has-text-centered rollout-caption">
-          Simulation videos cover LIBERO and zero-shot CALVIN ABC&rarr;D execution; real-world videos correspond to the four AgileX evaluation tasks in the paper.
+          Simulation videos cover LIBERO ; real-world videos correspond to the four AgileX evaluation tasks in the paper.
         </p>
       </div>
     </div>
@@ -208,6 +208,64 @@
   <section class="section spacer-section">
     <div class="container is-max-desktop"></div>
   </section>
+
+<!-- Experiments Motivation Section -->
+<section class="section">
+<div class="container is-max-desktop">
+
+<div class="columns is-centered">
+<div class="column is-full-width">
+
+
+<h2 class="title is-3">
+Motivation: Representation Analysis
+</h2>
+
+
+<h3 class="title is-4">
+Transferable Geometry and Semantic Alignment
+</h3>
+
+
+<div class="content has-text-justified">
+
+<img class="paper-figure"
+src="assets/depth_probing.png"
+alt="Depth probing across validation scenarios">
+
+
+<p>
+We first revisit implicit and explicit 3D VLA paradigms through representation analysis.
+Depth probing across LIBERO in-domain scenes, noisy LIBERO scenes,
+CALVIN OOD scenes, and real-world images shows that implicit SF representations
+degrade under distribution shift, whereas explicit geometry preserves more stable
+depth structure.
+</p>
+
+
+<img class="paper-figure figure-gap"
+src="assets/attention.png"
+alt="Attention visualization of 3D feature representations">
+
+
+<p>
+Geometry alone is insufficient: geometry-centric features can emphasize salient
+but task-irrelevant regions. Under the same VLA backbone and training setup,
+SAFG features yield attention that is more concentrated on instruction-relevant
+objects, supporting the design principle of jointly organizing 3D structure
+around task semantics and affordances.
+</p>
+
+
+</div>
+
+
+</div>
+</div>
+
+</div>
+</section>
+
 
   <!-- Model section. -->
   <section class="section">
@@ -239,19 +297,6 @@
         <div class="column is-full-width">
           <h2 class="title is-3">Experiments</h2>
 
-          <h3 class="title is-4">Representation Analysis: Transferable Geometry and Semantic Alignment</h3>
-          <div class="content has-text-justified">
-            <img class="paper-figure" src="assets/depth_probing.png" alt="Depth probing across validation scenarios">
-            <p>
-              We first revisit implicit and explicit 3D VLA paradigms through representation analysis.
-              Depth probing across LIBERO in-domain scenes, noisy LIBERO scenes, CALVIN OOD scenes, and real-world images shows that implicit SF representations degrade under distribution shift, whereas explicit geometry from GeoVLA and the VGGT foundation model preserves more stable depth structure.
-            </p>
-            <img class="paper-figure figure-gap" src="assets/attention.png" alt="Attention visualization of 3D feature representations">
-            <p>
-              Geometry alone is insufficient: geometry-centric features can emphasize salient but task-irrelevant regions.
-              Under the same VLA backbone and training setup, SAFG features yield attention that is more concentrated on instruction-relevant objects, supporting the paper's central design principle of jointly organizing 3D structure around task semantics and affordances.
-            </p>
-          </div>
 
           <br>
           <h3 class="title is-4">In-Domain and Out-of-Domain Evaluation</h3>
