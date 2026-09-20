@@ -347,7 +347,7 @@ max-width: 1100px;
 }
 
 .teaser-summary p {
-    text-align: left !important;
+    text-align: justify !important;
 }
 
 .teaser .paper-figure {
