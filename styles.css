@@ -340,14 +340,14 @@ max-width: 1100px;
 }
 
 .teaser-summary {
-    max-width: 1100px;
-    margin: 1.2rem auto 0.5rem;
-    font-size: 1.25rem;
-    line-height: 1.5;
+    max-width: 1200px;
+    margin: 1.5rem auto 0.8rem;
+    font-size: 1.2rem;
+    line-height: 1.6;
 }
 
 .teaser-summary p {
-    text-align: justify !important;
+    text-align: left !important;
 }
 
 .teaser .paper-figure {
