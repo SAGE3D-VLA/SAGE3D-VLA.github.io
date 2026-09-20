@@ -347,7 +347,7 @@ line-height: 1.6;
 }
 
 .teaser-summary p {
-text-align: center !important;
+    text-align: justify !important;
 }
 
 .teaser .paper-figure {
